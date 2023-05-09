@@ -1,0 +1,174 @@
+{
+  "accounts": [
+    {
+      "firstName": "Ndemba",
+      "lastName": "Ndelli",
+      "userName": "petex",
+      "email": "ndellipetex@gmail.com",
+      "password": "123Ada/456",
+      "confirmPassword": "123Ada/456",
+      "id": "00f53ef7-7221-b0df-3e37-a299ea782b4c"
+    },
+    {
+      "firstName": "test",
+      "lastName": "app",
+      "userName": "zinger",
+      "email": "testzinger@zingersystems.com",
+      "password": "123Ada/456",
+      "confirmPassword": "123Ada/456",
+      "id": "a6d9d578-a7c5-4fe2-04e5-420b8bc0a051"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "productName": "Drone camera",
+      "image": "https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 2,
+      "productName": "Male cloth",
+      "image": "https://images.pexels.com/photos/13192037/pexels-photo-13192037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 3,
+      "productName": "camera",
+      "image": "https://images.pexels.com/photos/336232/pexels-photo-336232.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 4,
+      "productName": "Ladies cloth",
+      "image": "https://images.pexels.com/photos/10792732/pexels-photo-10792732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 5,
+      "productName": "Male cloth",
+      "image": "https://images.pexels.com/photos/13192037/pexels-photo-13192037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 6,
+      "productName": "camera",
+      "image": "https://images.pexels.com/photos/336232/pexels-photo-336232.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 7,
+      "productName": "Ladies cloth",
+      "image": "https://images.pexels.com/photos/7207506/pexels-photo-7207506.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 8,
+      "productName": "camera",
+      "image": "https://images.pexels.com/photos/9825046/pexels-photo-9825046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 9,
+      "productName": "camera",
+      "image": "https://images.pexels.com/photos/9825046/pexels-photo-9825046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 10,
+      "productName": "Kid cloth",
+      "image": "https://images.pexels.com/photos/3875080/pexels-photo-3875080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 11,
+      "productName": "camera",
+      "image": "https://images.pexels.com/photos/3875080/pexels-photo-3875080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    },
+    {
+      "id": 12,
+      "productName": "camera",
+      "image": "https://images.pexels.com/photos/3875080/pexels-photo-3875080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150
+    }
+  ],
+  "basket": [
+    {
+      "id": 2,
+      "productName": "Male cloth",
+      "image": "https://images.pexels.com/photos/13192037/pexels-photo-13192037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150,
+      "total": 450,
+      "quantity": 2
+    },
+    {
+      "id": 3,
+      "productName": "camera",
+      "image": "https://images.pexels.com/photos/336232/pexels-photo-336232.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150,
+      "total": 300,
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "productName": "camera",
+      "image": "https://images.pexels.com/photos/9825046/pexels-photo-9825046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150,
+      "total": 300,
+      "quantity": 3
+    },
+    {
+      "id": 1,
+      "productName": "Drone camera",
+      "image": "https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150,
+      "quantity": 1,
+      "total": 150
+    },
+    {
+      "id": 12,
+      "productName": "camera",
+      "image": "https://images.pexels.com/photos/3875080/pexels-photo-3875080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150,
+      "quantity": 0,
+      "total": 150
+    },
+    {
+      "id": 5,
+      "productName": "Male cloth",
+      "image": "https://images.pexels.com/photos/13192037/pexels-photo-13192037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150,
+      "quantity": 0,
+      "total": 150
+    },
+    {
+      "id": 7,
+      "productName": "Ladies cloth",
+      "image": "https://images.pexels.com/photos/7207506/pexels-photo-7207506.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "productDetails": "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy",
+      "price": 150,
+      "quantity": 0,
+      "total": 150
+    }
+  ],
+  "Checkout": []
+}
