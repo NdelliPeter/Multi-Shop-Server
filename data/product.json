@@ -1,1 +1,43 @@
-{"189269":{"productName":"phone","price":200,"productDetails":"Volup clita lorem magna duo dolor no seaNonumy"},"358550":{"productname":"Samsung S22","price":350},"481508":{"productname":"Samsung S2","price":200},"543753":{"productName":"bass guitar","price":90,"productDetails":"Volup seaNonumy"},"610620":{"productName":"peter phone","price":90000,"productDetails":"Volup efjdfkjdkfjdrdjskdjskjdskat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy"},"658780":{"productname":"laptop","price":400},"659230":{"productname":"Dell i7","price":300},"706860":{"productName":"mmmmpetere phone","price":90000,"productDetails":"Volup efjdfkjdkfjdrdjskdjskjdskat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy"},"980698":{"productName":"mmmmpetere phone","price":90000,"productDetails":"Volup efjdfkjdkfjdrdjskdjskjdskat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy"}}
+{
+    "189269": {
+        "productName": "phone",
+        "price": 200,
+        "productDetails": "Volup clita lorem magna duo dolor no seaNonumy"
+    },
+    "358550": {
+        "productname": "Samsung S22",
+        "price": 350
+    },
+    "481508": {
+        "productname": "Samsung S2",
+        "price": 200
+    },
+    "543753": {
+        "productName": "bass guitar",
+        "price": 90,
+        "productDetails": "Volup seaNonumy"
+    },
+    "610620": {
+        "productName": "peter phone",
+        "price": 90000,
+        "productDetails": "Volup efjdfkjdkfjdrdjskdjskjdskat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy"
+    },
+    "658780": {
+        "productname": "laptop",
+        "price": 400
+    },
+    "659230": {
+        "productname": "Dell i7",
+        "price": 300
+    },
+    "706860": {
+        "productName": "mmmmpetere phone",
+        "price": 90000,
+        "productDetails": "Volup efjdfkjdkfjdrdjskdjskjdskat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy"
+    },
+    "980698": {
+        "productName": "mmmmpetere phone",
+        "price": 90000,
+        "productDetails": "Volup efjdfkjdkfjdrdjskdjskjdskat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no seaNonumy"
+    }
+}

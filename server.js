@@ -80,19 +80,25 @@ productRoutes.post('/product/addproduct', (req, res) => {
 
 // Read all Data
 accountRoutes.get('/account/list', (req, res) => {
-  const accounts = getAccountData()
-  res.send(accounts)
-})
+  const accounts = getAccountData();
+  res.send(accounts);
+});
 productRoutes.get('/product/list', (req ,res) => {
   const products = getProductData();
   res.send(products);
-})
+});
+
+productRoutes.get('/product/item/:id', (req ,res) => {
+  let products = getProductData();
+  products
+});
 
 // Update - using Put method
 accountRoutes.put('/account/:id', (req, res) => {
   var existAccounts = getAccountData()
   fs.readFile(dataPath, 'utf8', (err, data) => {
     const accountId = req.params['id'];
+    console.log(accountId);
     existAccounts[accountId] = req.body;
     saveAccountData(existAccounts);
     res.send(`accounts with id ${accountId} has been updated`)
