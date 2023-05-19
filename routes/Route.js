@@ -7,7 +7,7 @@ const accountRoutes = require('./account.js');
 router.use(accountRoutes);
 
 // Product route
-const productRoutes =require('./product.js');
+const productRoutes =require('./products.js');
 router.use(productRoutes);
 
 
