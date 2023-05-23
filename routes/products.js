@@ -14,4 +14,4 @@ router.route('/')
 router.route('/:id') 
     .get(productsController.getProduct)
 
-module.exports =  router;
+module.exports = router;
