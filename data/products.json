@@ -1,1 +1,51 @@
-[{"id":972512,"productname":"Samsung 9 plus","productprice":150,"productimage":"https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","productcategory":"electronics"},{"id":373293,"productname":"Samsung 10 plus","productprice":150,"productimage":"https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","productcategory":"electronics"},{"id":579314,"productname":"Samsung 22","productprice":350,"productimage":"https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","productcategory":"electronics"},{"id":754001,"productname":"Samsung 22 ultra","productprice":450,"productimage":"https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","productcategory":"electronics"},{"id":251285,"productname":"Lambogini","productprice":10000,"productimage":"https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","productcategory":"car"},{"id":197786,"productname":"bugati","productprice":12000,"productimage":"https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","productcategory":"car"}]
+[
+    {
+        "id": 972512,
+        "productname": "Samsung 9 plus",
+        "productprice": 150,
+        "productimage": "https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "productcategory": "electronics"
+    },
+    {
+        "id": 373293,
+        "productname": "Samsung 10 plus",
+        "productprice": 150,
+        "productimage": "https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "productcategory": "electronics"
+    },
+    {
+        "id": 579314,
+        "productname": "Samsung 22",
+        "productprice": 350,
+        "productimage": "https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "productcategory": "electronics"
+    },
+    {
+        "id": 754001,
+        "productname": "Samsung 22 ultra",
+        "productprice": 450,
+        "productimage": "https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "productcategory": "electronics"
+    },
+    {
+        "id": 251285,
+        "productname": "Lambogini",
+        "productprice": 10000,
+        "productimage": "https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "productcategory": "car"
+    },
+    {
+        "id": 197786,
+        "productname": "bugati",
+        "productprice": 12000,
+        "productimage": "https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "productcategory": "car"
+    },
+    {
+        "id": 323633,
+        "productname": "viton",
+        "productprice": 12000,
+        "productimage": "https://images.pexels.com/photos/14799851/pexels-photo-14799851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "productcategory": "cloths"
+    }
+]
