@@ -1,6 +1,16 @@
-const express = require("express")
-const accountRoutes = express.Router();
-const fs = require('fs');
+const express = require("express");
+const router = express.Router();
+const accountsController = require('../controllers/account.controller');
 
-module.exports = accountRoutes
 
+router.route('/accounts')
+    .get(accountsController.getAllAccounts)
+    .post(accountsController.createAccount)
+    .put(accountsController.updateAccount)
+    .delete(accountsController.deleteAccount)
+
+
+router.route('/accounts/:id') 
+    .get(accountsController.getAccount)
+
+module.exports = router;
