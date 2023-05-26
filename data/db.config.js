@@ -1,4 +1,5 @@
 const{ Sequelize, Model, DataTypes } = require('sequelize')
+const route = require('../routes/Route')
 
 
 const connect = () => {

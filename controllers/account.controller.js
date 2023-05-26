@@ -1,4 +1,6 @@
-const fs = require('fs')
+const client = require('../connection')
+
+client.connect
 
 const data = {
     accounts: require('../data/account.json'),
@@ -14,73 +16,70 @@ const saveAccountData = (array) => {
 
 
 const getAllAccounts = (req, res) => {
-    fs.readFile(accountDataPath, 'utf8', (err, ans) => {
-        if (err) {
-            console.error(err);
+    client.query(`Select * from accounts`, (err, result) => {
+        if (!err) {
+            res.send(result.rows)
         }
-        console.log(ans);
-        let all = JSON.parse(ans)
-        res.send(all)
     })
+    client.end
 }
 
 
 const createAccount = (req, res) => {
-    const newaccountId = Math.floor(100000 + Math.random() * 900000)
-    const newAccount = {
-        id: newaccountId,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        userName: req.body.userName,
-        password: req.body.password
-    }
+    const account = req.body
+    const insertAccount = `insert into products(id, name, price, image, category)
+    values(${account.id}, '${account.firstName}', '${account.lastName}', '${account.userName}', '${account.email}', '${account.password}' )`
 
-    if (!newAccount.firstName || !newAccount.lastName || !newAccount.email || !newAccount.userName || !newAccount.password) {
-        return res.status(404).json({ 'message': `Accout's first name, last name, email, user name and password are required.` })
-    }
-
-    data.setAccounts([...data.accounts, newAccount])
-    saveAccountData(data.accounts)
-
-    res.status(201).json(data.accounts)
+    client.query(insertAccount, (err, result) =>{
+        if (!err){
+            res.send('Insertion complete')
+        }else{
+            console.log(err.message);
+        }
+    })
+    client.end
 }
 
 const updateAccount = (req, res) => {
-    const account = data.accounts.find(acc => acc.id === parseInt(req.body.id))
-    if (!account) {
-        return res.status(404).json({ 'message': `Products ID ${req.body.id} not found` })
-    }
-    if (req.body.firstName) account.firstName = req.body.firstName
-    if (req.body.lastName) account.lastName = req.body.lastName
-    if (req.body.email) account.email = req.body.email
-    if (req.body.userName) account.userName = req.body.userName
-    if (req.body.password) account.password = req.body.password
-    const filteredArray = data.accounts.filter(acc => acc.id !== parseInt(req.body.id))
-    const unsortedArray = [...filteredArray, account]
-    data.setAccounts(unsortedArray.sort((a, b) => a.id > b.id ? 1 : a.id < b.id ? -1 : 0))
-    saveAccountData(data.accounts)
-    res.json(data.accounts)
+    let account = req.body
+    let updateAccount = `update products
+                        set firsName='${account.firstName}', 
+                        lastName=${account.lastName}, 
+                        userNmae='${account.userName}', 
+                        email='${userName.email}',
+                        password='${userName.password}',
+                        where id=${account.id}`
+
+    client.query(updateAccount, (err, result) => {
+        if(!err){
+            res.send('Update is complete')
+        }else{
+            console.log(err.message)
+        }
+    })
+    client.end
 }
 
 const deleteAccount = (req, res) => {
-    const account = data.accounts.find(acc => acc.id === parseInt(req.body.id))
-    if (!account) {
-        return res.status(404).json({ 'message': `Products ID ${req.body.id} not found` })
-    }
-    const filteredArray = data.accounts.filter(acc => acc.id !== parseInt(req.body.id))
-    data.setAccounts([...filteredArray])
-    const finalArray = JSON.stringify(data.accounts)
-    fs.writeFileSync(accountDataPath, finalArray)
-    res.json(data.accounts)
+    let insertQuery = `delete from products where id=${req.params.id}`
+    console.log(insertQuery);
+    client.query(insertQuery, (err, result) => {
+        if(!err) {
+            res.send('Delete complete')
+        }else{
+            console.log(err.message);
+        }
+    })
+    client.end
 }
 
 const getAccount = (req, res) => {
-    console.log(req.params.id);
-    fs.readFile(accountDataPath, 'utf8', (err, ans) => {
-        let all = JSON.parse(ans)
-        res.send(all.find((acc) => (acc.id === parseInt(req.params.id))))
+    client.query(`Select * from products where id= ${req.params.id}`, (err, result) => {
+        if(!err) {
+            res.send(result.rows)
+        }
     })
+    client.end
 }
 
 
