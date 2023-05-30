@@ -6,6 +6,8 @@ const accountsController = require('../controllers/account.controller');
 router.route('/accounts')
     .get(accountsController.getAllAccounts)
     .post(accountsController.createAccount)
+
+router.route('accounts/:id')
     .put(accountsController.updateAccount)
     .delete(accountsController.deleteAccount)
 
