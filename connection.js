@@ -7,10 +7,7 @@ const client = new Client({
     password: "Charles/123",
     database: "postgres"
 })
-
-
 module.exports = client
-
 
 const { Pool } = require('pg')
 
@@ -21,6 +18,5 @@ const pool = new Pool({
     password: "Charles/123",
     database: "postgres"
 })
-
-
 module.exports = pool
+

@@ -27,8 +27,8 @@ const getAllAccounts = (req, res) => {
 
 const createAccount = (req, res) => {
     const account = req.body
-    const insertAccount = `insert into products(id, name, price, image, category)
-    values(${account.id}, '${account.firstName}', '${account.lastName}', '${account.userName}', '${account.email}', '${account.password}' )`
+    const insertAccount = `insert into accounts( firstName, lastName, userName, email, password)
+    values( '${account.firstName}', '${account.lastName}', '${account.userName}', '${account.email}', '${account.password}' )`
 
     pool.query(insertAccount, (err, result) =>{
         if (!err){
