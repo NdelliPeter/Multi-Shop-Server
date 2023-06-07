@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
+// const fs = require('fs');
 
 // Account route
 const accountRoutes = require('./account.js');
@@ -11,8 +11,8 @@ const productRoutes =require('./products.js');
 router.use(productRoutes);
 
 // Basket route
-// const basketRoutes = require('./baskets.js');
-// router.use(basketRoutes);
+const basketRoutes = require('./baskets.js');
+router.use(basketRoutes);
 
 
 module.exports = router;

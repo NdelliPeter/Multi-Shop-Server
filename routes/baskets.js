@@ -4,13 +4,13 @@ const basketController = require('../controllers/basket.controller');
 
 
 router.route('/baskets')
-    .get(basketController.getAllProducts)
-    .post(basketController.createNewProduct)
+    .get(basketController.getAllBasket)
+    .post(basketController.createNewBasket)
 
 router.route('/baskets/:id')
-    .put(basketController.updateProduct)
-    .delete(basketController.deleteProduct)
+    .put(basketController.updateBasket)
+    .delete(basketController.deleteBasket)
 router.route('/baskets/:id') 
-    .get(basketController.getProduct)
+    .get(basketController.getBasket)
 
 module.exports = router;

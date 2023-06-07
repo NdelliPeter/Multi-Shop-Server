@@ -21,6 +21,8 @@ const routes = require('./routes/Route')
 app.use('/', routes)
 app.use('/products' , require('./routes/products'))
 app.use('/accounts' , require('./routes/account'))
+app.use('/baskets', require('./routes/baskets'))
+
 
 
 app.listen(port, function () {
