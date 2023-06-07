@@ -1,5 +1,5 @@
 const express = require("express");
-const cors  = require('cors')
+const cors  = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config()
 
@@ -12,16 +12,16 @@ const port = process.env.PORT || 4000;
 // middleware
 app.use(cors({
   origin: "http://localhost:3000"
-}))
-app.use(express.json())
+}));
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // route
-const routes = require('./routes/Route')
-app.use('/', routes)
-app.use('/products' , require('./routes/products'))
-app.use('/accounts' , require('./routes/account'))
-app.use('/baskets', require('./routes/baskets'))
+const routes = require('./routes/Route');
+app.use('/', routes);
+app.use('/products' , require('./routes/products'));
+app.use('/accounts' , require('./routes/accounts'));
+app.use('/baskets', require('./routes/baskets'));
 
 
 

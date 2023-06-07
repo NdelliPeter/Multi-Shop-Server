@@ -3,7 +3,7 @@ const router = express.Router();
 // const fs = require('fs');
 
 // Account route
-const accountRoutes = require('./account.js');
+const accountRoutes = require('./accounts.js');
 router.use(accountRoutes);
 
 // Product route
