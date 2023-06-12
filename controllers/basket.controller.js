@@ -16,6 +16,9 @@ const getAllBasket = (req, res) => {
 
 const createNewBasket = (req, res) => {
     const basket = req.body
+    basket.quantity = 1
+    basket.total = basket.price
+    console.log(basket);
     const insertProduct = `insert into baskets(id, name, price, image, category, quantity, total)
     values(${basket.id}, '${basket.name}', ${basket.price}, '${basket.image}', '${basket.category}', ${basket.quantity}, ${basket.total} )`
 
@@ -31,7 +34,8 @@ const createNewBasket = (req, res) => {
 
 const updateBasket = (req, res) => {
     let basket = req.body
-    let updateBasket = `update bascket
+    console.log(basket);
+    let updateBasket = `update basket
                         set name='${basket.name}', 
                         price=${basket.price}, 
                         image='${basket.image}', 
