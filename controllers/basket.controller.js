@@ -34,8 +34,9 @@ const createNewBasket = (req, res) => {
 
 const updateBasket = (req, res) => {
     let basket = req.body
+    basket.total =basket.price * basket.quantity
     console.log(basket);
-    let updateBasket = `update basket
+    let updateBasket = `update baskets
                         set name='${basket.name}', 
                         price=${basket.price}, 
                         image='${basket.image}', 
