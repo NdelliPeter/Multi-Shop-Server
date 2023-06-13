@@ -22,6 +22,7 @@ app.use('/', routes);
 app.use('/products' , require('./routes/products'));
 app.use('/accounts' , require('./routes/accounts'));
 app.use('/baskets', require('./routes/baskets'));
+app.use('/checkout', require('./routes/checkout'))
 
 
 

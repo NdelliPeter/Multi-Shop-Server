@@ -14,5 +14,9 @@ router.use(productRoutes);
 const basketRoutes = require('./baskets.js');
 router.use(basketRoutes);
 
+// Checkout route
+const checkoutRoutes = require('./checkout.js');
+router.use(checkoutRoutes);
+
 
 module.exports = router;
