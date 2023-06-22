@@ -1,18 +1,18 @@
 
-const client = require('../connection')
+const pool = require('../connection')
 
 const { ClientBase, Client } = require('pg')
 
-client.connect()
+pool.connect()
 
 
 const getAllProducts = (req, res) => {
-    client.query(`Select * from products`, (err, result) => {
+    pool.query(`Select * from products`, (err, result) => {
         if (!err) {
             res.send(result.rows)
         }
     })
-    client.end
+    pool.end
 }
 
 const createNewProduct = (req, res) => {
@@ -20,14 +20,14 @@ const createNewProduct = (req, res) => {
     const insertProduct = `insert into products(id, name, price, image, category)
     values(${product.id}, '${product.name}', ${product.price}, '${product.image}', '${product.category}' )`
 
-    client.query(insertProduct, (err, result) =>{
+    pool.query(insertProduct, (err, result) =>{
         if (!err){
             res.send('Insertion complete')
         }else{
             console.log(err.message);
         }
     })
-    client.end
+    pool.end
 }
 
 const updateProduct = (req, res) => {
@@ -39,14 +39,14 @@ const updateProduct = (req, res) => {
                         category='${product.category}'
                         where id=${product.id}`
 
-    client.query(updateProduct, (err, result) => {
+    pool.query(updateProduct, (err, result) => {
         if(!err){
             res.send('Update is complete')
         }else{
             console.log(err.message)
         }
     })
-    client.end
+    pool.end
 
 }
 
@@ -54,25 +54,25 @@ const deleteProduct = (req, res) => {
 
     let insertQuery = `delete from products where id=${req.params.id}`
     console.log(insertQuery);
-    client.query(insertQuery, (err, result) => {
+    pool.query(insertQuery, (err, result) => {
         if(!err) {
             res.send('Delete complete')
         }else{
             console.log(err.message);
         }
     })
-    client.end
+    pool.end
 
 
 }
 
 const getProduct = (req, res) => {
-    client.query(`Select * from products where id= ${req.params.id}`, (err, result) => {
+    pool.query(`Select * from products where id= ${req.params.id}`, (err, result) => {
         if(!err) {
             res.send(result.rows)
         }
     })
-    client.end
+    pool.end
 
 }
 

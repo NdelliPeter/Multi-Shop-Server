@@ -8,12 +8,16 @@ module.exports = (Sequelize, DataTypes, Model) => {
     class Accounts extends Model { }
 
     Accounts.init({
+        id: { 
+            type: DataTypes.INTEGER,
+            allowNull: false 
+        },
         firstName: { 
             type: DataTypes.STRING,
             allowNull: false 
         },
         lastName: { 
-            type: DataTypes.IMAGE, 
+            type: DataTypes.STRING, 
         },
         userName: { 
             type: DataTypes.STRING,
@@ -27,10 +31,56 @@ module.exports = (Sequelize, DataTypes, Model) => {
             type: DataTypes.NUMBER 
         }
     },{
-        Sequelize, 
+         
         modelName: 'accounts'
     })
 
 
     return Accounts
 }
+
+// const { sq } = require('../config/db');
+// const { DataTypes } = require('sequelize');
+
+// const Accounts = sq.define('account', {
+//             id: {
+//                 type: DataTypes.INTEGER,
+//                 allowNull: false,
+//                 primaryKey: true
+//             },
+//             firstname: { 
+//                 type: DataTypes.STRING,
+//                 allowNull: false
+//             },
+//             lastname: { 
+//                 type: DataTypes.STRING,
+//                 allowNull: false 
+//             },
+//             username: { 
+//                 type: DataTypes.STRING,
+//                 allowNull: false 
+//             },
+//             email: { 
+//                 type: DataTypes.NUMBER,
+//                 allowNull: false
+//             },
+//             password: {
+//                 type: DataTypes.NUMBER,
+//                 allowNull: false
+//             }
+//         })
+
+// Accounts.sync().then(() => {
+//     console.log('Account model synced');
+// });
+
+// const peter = Accounts.create({
+//     id: 1234,
+//     firstname: 'Ndelli',
+//     lastname: 'Peter Ndemba',
+//     username: 'Petex',
+//     email: 'ndellipetex@gmail.com',
+//     password: 'Ada/1234'
+// })
+
+// module.exports = Accounts

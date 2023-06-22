@@ -1,7 +1,12 @@
 const express = require("express");
 const cors  = require('cors');
 const bodyParser = require('body-parser');
-require('dotenv').config()
+const dotenv = require('dotenv')
+dotenv.config()
+const db = require('./models')
+const accountRoutes = require('./routes/accounts')
+const sequelize = require('sequelize')
+// const cookieParser = require('cookie-parser')
 
 // Create express app
 const app = express();
@@ -15,15 +20,26 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(cookieParser())
+
+
+// db.sequelize.sync({force: true}).then(() => {
+//   console.log('db has been re sync');
+// })
+
 
 // route
 const routes = require('./routes/Route');
+const cookieParser = require("cookie-parser");
 app.use('/', routes);
 app.use('/products' , require('./routes/products'));
 app.use('/accounts' , require('./routes/accounts'));
+app.use('/auth' , require('./routes/auth'));
 app.use('/baskets', require('./routes/baskets'));
-app.use('/checkout', require('./routes/checkout'))
+app.use('/checkout', require('./routes/checkout'));
 
+
+// app.use('/api/user', accountRoutes)
 
 
 app.listen(port, function () {
