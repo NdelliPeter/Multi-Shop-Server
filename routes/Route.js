@@ -6,6 +6,12 @@ const router = express.Router();
 const accountRoutes = require('./accounts.js');
 router.use(accountRoutes);
 
+const authRoutes = require('./auth.js');
+router.use(authRoutes);
+
+const refreshRoutes = require('./refresh.js');
+router.use(refreshRoutes);
+
 // Product route
 const productRoutes =require('./products.js');
 router.use(productRoutes);

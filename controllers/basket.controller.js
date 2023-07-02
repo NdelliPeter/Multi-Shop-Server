@@ -71,6 +71,21 @@ const deleteBasket = (req, res) => {
 
 
 }
+const deleteAll = (req, res) => {
+
+    let insertQuery = `delete from baskets where *`
+    console.log(insertQuery);
+    pool.query(insertQuery, (err, result) => {
+        if(!err) {
+            res.send('Delete complete')
+        }else{
+            console.log(err.message);
+        }
+    })
+    pool.end
+
+
+}
 
 const getBasket = (req, res) => {
     pool.query(`Select * from baskets where id= ${req.params.id}`, (err, result) => {
@@ -88,5 +103,6 @@ module.exports = {
     createNewBasket,
     updateBasket,
     deleteBasket,
-    getBasket
+    getBasket,
+    deleteAll
 }
