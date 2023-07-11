@@ -30,14 +30,11 @@ const auth = async (req, res) => {
 
     console.log('kflkvfdfd', email , password);
     const find = await Account.findAll({where: {email: email}})
-    // const finder = JSON.stringify(find)
-
+    const hash = await bcrypt.hash(password, 10)
     // console.log('find item', find);
-    // console.log('finder item', finder);
-
-    // const match = await bcrypt.compare(password, finder.password)
+    const match = await bcrypt.compare(password, hash)
     // console.log(match);
-    if (find) {
+    if (match) {
         const accessToken = jwt.sign(
             {'email': find.email},
             process.env.ACCESS_TOKEN_SECRET,
@@ -48,7 +45,6 @@ const auth = async (req, res) => {
             process.env.REFRESH_TOKEN_SECRET,
             {expiresIn: '1d'}
         )
-
         res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', secure: true, maxAge: 24 * 60 * 60 * 1000}) 
         res.json({ accessToken, find })
     } else {

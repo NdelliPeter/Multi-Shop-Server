@@ -7,7 +7,7 @@ dotenv.config()
 const db = require('./models')
 const accountRoutes = require('./routes/accounts')
 const sequelize = require('sequelize')
-const verityJWT = require('./middleware/veriftyJWT')
+const {verityJWT} = require('./middleware/veriftyJWT')
 const {logger} = require('./middleware/logEvents')
 // const cookieParser = require('cookie-parser')
 

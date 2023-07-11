@@ -1,35 +1,6 @@
 const { Sequelize, DataTypes, Model } = require("sequelize");
 
 
-// module.exports = (Sequelize, DataTypes, Model) => {
-
-//     class Checkout extends Model { }
-
-//     Checkout.init({
-//         id: { 
-//             type: DataTypes.SRING,
-//             allowNull: false
-//         },        
-//         subtotal: { 
-//             type: DataTypes.NUMBER,
-
-//         },
-//         shipping: { 
-//             type: DataTypes.NUMBER, 
-//         },
-//         generaltotal: { 
-//             type: DataTypes.NUMBER,
-
-//         },
-
-//     },{
-//         Sequelize, 
-//         modelName: 'checkout'
-//     })
-
-
-//     return Checkout
-// }
 
 module.exports = function createCheckoutModel(sequelize) {
     const Checkout = sequelize.define('products', {
@@ -43,7 +14,10 @@ module.exports = function createCheckoutModel(sequelize) {
             type: Sequelize.DataTypes.INTEGER,
         }
     },
-    {}
+    {
+        freezeTableName: true,
+        timestamps: false
+    }
     );
 
     return Checkout
