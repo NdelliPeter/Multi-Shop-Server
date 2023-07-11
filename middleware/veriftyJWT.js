@@ -12,7 +12,7 @@ const verityJWT = (req, res, next) => {
         process.env.ACCESS_TOKEN_SECRET,
         (err, decoded) => {
             if (err) return res. sendStatus(403)
-            req.user = decoded.email;
+            req.account = decoded.email;
             next()
         }
     )

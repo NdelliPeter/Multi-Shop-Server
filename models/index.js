@@ -1,21 +1,24 @@
-// const {Sequelize, DataTypes} = require('sequelize')
+const {Sequelize, DataTypes} = require('sequelize')
 
-// const sequelize = new Sequelize(`postgres://postgres:Charles/123@localhost:5432/postgres`, {dialect: "postgres"})
-
-
-// //checking if connection is done
-// sequelize.authenticate().then(() => {
-//     console.log(`Database connected to discover`)
-// }).catch((err) => {
-//     console.log(err)
-// })
+const sequelize = new Sequelize('postgres', 'postgres', 'Charles/123', {dialect: "postgres"})
 
 
-// const db = {}
-// db.Sequelize = Sequelize
-// db.sequelize = sequelize
+//checking if connection is done
+sequelize.authenticate().then(() => {
+    console.log(`Database connected to discover`)
+}).catch((err) => {
+    console.log(err)
+})
 
-// db.accounts = require('./account.model') (sequelize, DataTypes)
+
+const db = {}
+db.Sequelize = Sequelize
+db.sequelize = sequelize
+
+db.accounts = require('./account.model') (sequelize, DataTypes)
+db.products = require('./product.model') (sequelize, DataTypes)
+db.baskets = require('./basket.model') (sequelize, DataTypes)
+db.checkout = require('./checkout.model') (sequelize, DataTypes)
 
 
-// module.exports = db
+module.exports = db

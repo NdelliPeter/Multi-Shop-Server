@@ -36,14 +36,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // route
 const routes = require('./routes/Route');
 app.use('/', routes);
-app.use('/baskets', require('./routes/baskets'));
-app.use('/checkout', require('./routes/checkout'));
+
 app.use('/products' , require('./routes/products'));
 app.use('/accounts' , require('./routes/accounts'));
-// app.use('/auth' , require('./routes/auth'));
+app.use('/auth' , require('./routes/auth'));
 app.use('/refresh' , require('./routes/refresh'));
 
 // app.use(verityJWT);
+app.use('/baskets', require('./routes/baskets'));
+app.use('/checkout', require('./routes/checkout'));
 
 
 // app.use('/api/user', accountRoutes)

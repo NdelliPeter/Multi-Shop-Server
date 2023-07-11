@@ -1,10 +1,11 @@
 
 const pool = require('../connection')
+const db = require('../models');
 
 const { ClientBase, Client } = require('pg')
 
-pool.connect()
-
+// pool.connect()
+db.products
 
 const getAllProducts = (req, res) => {
     pool.query(`Select * from products`, (err, result) => {

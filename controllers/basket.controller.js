@@ -1,4 +1,6 @@
 const pool = require('../connection')
+const db = require('../models');
+const Basket = db.baskets
 
 const { ClientBase, Client } = require('pg')
 

@@ -3,31 +3,56 @@ const { Sequelize, DataTypes, Model } = require("sequelize");
 
 
 
-module.exports = (Sequelize, DataTypes, Model) => {
+// module.exports = (Sequelize, DataTypes, Model) => {
 
-    class Products extends Model { }
+//     class Products extends Model { }
 
-    Products.init({
-        name: { 
-            type: DataTypes.STRING,
-            allowNull: false 
+//     Products.init({
+//         name: { 
+//             type: DataTypes.STRING,
+//             allowNull: false 
+//         },
+//         image: { 
+//             type: DataTypes.IMAGE, 
+//         },
+//         category: { 
+//             type: DataTypes.STRING,
+//             allowNull: false 
+//         },
+//         price: { 
+//             type: DataTypes.NUMBER,
+//             allowNull: false
+//         }
+//     },{
+//         Sequelize, 
+//         modelName: 'products'
+//     })
+
+
+//     return Products
+// }
+
+module.exports = function createProductModel(sequelize) {
+    const Products = sequelize.define('products', {
+        name: {
+            type: Sequelize.DataTypes.STRING,
+            allowNull: false
         },
-        image: { 
-            type: DataTypes.IMAGE, 
+        image: {
+            type: Sequelize.DataTypes.STRING,
+            allowNull: false
         },
-        category: { 
-            type: DataTypes.STRING,
-            allowNull: false 
+        category: {
+            type: Sequelize.DataTypes.STRING,
+            allowNull: false
         },
-        price: { 
-            type: DataTypes.NUMBER,
+        price: {
+            type: Sequelize.DataTypes.INTEGER,
             allowNull: false
         }
-    },{
-        Sequelize, 
-        modelName: 'products'
-    })
-
+    },
+    {}
+    );
 
     return Products
 }

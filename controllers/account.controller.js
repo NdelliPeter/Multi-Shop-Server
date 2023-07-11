@@ -3,7 +3,7 @@ const db = require('../models');
 const jwt = require('jsonwebtoken');
 const cookie = require('cookie-parser')
 
-pool.connect()
+// pool.connect()
 
 const Account = db.accounts
 
@@ -11,10 +11,10 @@ const bcrypt = require('bcryptjs')
 
 const accountDataPath = './data/account.json'
 
-const saveAccountData = (array) => {
-    const finalArray = JSON.stringify(array)
-    fs.writeFileSync(accountDataPath, finalArray)
-}
+// const saveAccountData = (array) => {
+//     const finalArray = JSON.stringify(array)
+//     fs.writeFileSync(accountDataPath, finalArray)
+// }
 
 
 const getAllAccounts = (req, res) => {
@@ -24,12 +24,15 @@ const getAllAccounts = (req, res) => {
         }
     })
     pool.end
+    // const accounts = Account.findAll()
+    // console.log(accounts);
+    // res.status(201).send(accounts)
 }
 
 
 const createAccount = async (req, res) => {
 
-    const {id, fullname, userName, role, email, password} = req.body
+    const {id, fullname, userName, email, password} = req.body
 
 
     try {
@@ -38,7 +41,6 @@ const createAccount = async (req, res) => {
             id: id,
             fullname: fullname,
             username: userName,
-            role: role,
             email: email,
             password: await bcrypt.hash(password, 10)
         }
@@ -46,32 +48,21 @@ const createAccount = async (req, res) => {
         console.log(data);
 
         // Saving an account
-        // const account = await Account.create(data)
-        const insertAccount =  `insert into accounts(id, fullname, role, userName, email, password)
-        values(${data.id}, '${data.fullname}', '${data.username}', '${data.role}', '${data.email}', '${data.password}' )`
-
-        pool.query( insertAccount, (err, result) =>{
-            if (!err){
-                res.send('Insertion complete')
-            }else{
-                console.log(err.message)
-            }
-        })
-        pool.end
-
-        if (insertAccount) {
-            let token = jwt.sign({ id: insertAccount.id }, process.env.ACCESS_TOKEN_SECRET, {
-              expiresIn: 1 * 24 * 60 * 60 * 1000,
-            });
+        const account = await Account.create(data)
+        if (account) {
+            // let token = jwt.sign({ id: account.id }, process.env.ACCESS_TOKEN_SECRET, {
+            //   expiresIn: 1 * 24 * 60 * 60 * 1000,
+            // });
        
-            res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60, httpOnly: true });
-            console.log("account", JSON.stringify(insertAccount, null, 2));
-            console.log(token);
+            // res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60, httpOnly: true });
+            // console.log("account", JSON.stringify(account, null, 2));
+            // console.log(token);
             //send account details
-            return res.status(201).send(insertAccount);
+            return res.status(201).send(account);
         }else {
             return res.status(409).send("Details are not correct");
         }
+        // res.send(account)
     } catch (error) {
         console.log(error)
     }

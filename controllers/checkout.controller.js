@@ -1,6 +1,8 @@
 const pool = require('../connection');
+const db = require('../models');
+db.checkout
 
-pool.connect();
+// pool.connect();
 
 
 const getCheckout = (req, res) => {
@@ -27,8 +29,25 @@ const createCheckout = (req, res) => {
     pool.end
 }
 
+const deleteCheckout = (req, res) => {
+
+    let insertQuery = `delete from checkout where id=${req.params.id}`
+    console.log(insertQuery);
+    pool.query(insertQuery, (err, result) => {
+        if(!err) {
+            res.send('Delete complete')
+        }else{
+            console.log(err.message);
+        }
+    })
+    pool.end
+
+
+}
+
 
 module.exports = {
     getCheckout,
-    createCheckout
+    createCheckout,
+    deleteCheckout
 }
