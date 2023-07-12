@@ -24,6 +24,10 @@ module.exports = function createAccountModel(sequelize) {
         password: {
             type: Sequelize.DataTypes.STRING,
             allowNull: false
+        },
+        refreshtoken: {
+            type: Sequelize.DataTypes.STRING,
+            allowNull: true
         }
     },
     {

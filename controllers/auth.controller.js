@@ -11,6 +11,7 @@ const Account = db.accounts
 
 const bcrypt = require('bcrypt');
 const { json } = require('body-parser');
+const { where } = require('sequelize');
 
 
 
@@ -26,10 +27,7 @@ const { json } = require('body-parser');
 
 const auth = async (req, res) => {
     const { email, password} = req.body;
-    // const account = req.body;
-
-    console.log('kflkvfdfd', email , password);
-    const find = await Account.findAll({where: {email: email}})
+    const find = await Account.findOne({where: {email: email}})
     const hash = await bcrypt.hash(password, 10)
     // console.log('find item', find);
     const match = await bcrypt.compare(password, hash)
@@ -45,8 +43,16 @@ const auth = async (req, res) => {
             process.env.REFRESH_TOKEN_SECRET,
             {expiresIn: '1d'}
         )
-        res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', secure: true, maxAge: 24 * 60 * 60 * 1000}) 
-        res.json({ accessToken, find })
+        
+        // await Account.upsert('accounts', {id: find.id }, {refreshtoken: refreshToken}, {id: find.id})
+        if(find){
+            find.refreshtoken = refreshToken
+            await find.save()
+        }else{
+            console.log('Account not found');
+        }
+        res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', secure: true, maxAgae: 24 * 60 * 60 * 1000 }) 
+        res.json({ accessToken })
     } else {
         res.sendStatus(401)
     }

@@ -1,34 +1,30 @@
-const jwt = require('jsonwebtoken')
 
+const db = require('../models')
 
-const logout = (req, res) => {
+const Accounts = db.accounts
+
+const logout = async (req, res) => {
     const cookies = req.cookies
     if(!cookies?.jwt) return res.sendStatus(204)
-    console.log(cookies.jwt);
     const refreshToken = cookies.jwt
-    const allAcc =  pool.query(`Select * from accounts`, (err, result) => {
-        if (!err) {
-            res.send(result.rows)
-        }
-    })
-    pool.end
-    const find = allAcc.find(person => person.refreshToken === refreshToken)
-    
-    if(!find) return res.sendStatus(403)
 
-    jwt.verify(
-        refreshToken,
-        process.env.REFRESH_TOKEN_SECRET,
-        (err, decoded) => {
-            if (err || find.username !== decoded.username) return res.sendStatus(403)
-            const accessToken = jwt.sign(
-                {"username": decoded.username},
-                process.env.ACCESS_TOKEN_SECRET,
-                {expiresIn: '60s'}
-            )
-            res.json({accessToken})
-        }
-    )
+    const find = Accounts.findOne({where: {refreshToken: refreshToken}})
+    
+    if(!find) {
+        res.clearCookie('jwt', {httpOnly: true  })
+        return res.sendStatus(204)
+    }
+
+    if(find){
+        find.refreshtoken = null
+        await find.save()
+    }else{
+        console.log('Account not found');
+    }
+
+    res.clearCookie('jwt', { httpOnly: true, maxAge:24*60*60*1000})
+    res.sendStatus(204)
+
 }
 
 module.exports = {logout}

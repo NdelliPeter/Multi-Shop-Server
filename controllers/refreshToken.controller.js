@@ -1,30 +1,28 @@
 const jwt = require('jsonwebtoken')
+require('dotenv').config()
+const db = require('../models')
 
+const Accouts = db.accounts
 
 const handleRefreshToken = (req, res) => {
     const cookies = req.cookies
+    console.log(cookies);
     if(!cookies?.jwt) return res.sendStatus(401)
-    console.log(cookies.jwt);
+    console.log('refreshtoken', cookies.jwt);
     const refreshToken = cookies.jwt
-    const allAcc = pool.query(`Select * from accounts`, (err, result) => {
-        if (!err) {
-            res.send(result.rows)
-        }
-    })
-    pool.end
-
-    const find = allAcc.find(person => person.refreshToken === refreshToken)
+    const find = Accouts.findOne({where: {refreshToken: refreshToken}})
+    console.log(find);
     if(!find) return res.sendStatus(403)
 
     jwt.verify(
         refreshToken,
         process.env.REFRESH_TOKEN_SECRET,
         (err, decoded) => {
-            if (err || find.username !== decoded.username) return res.sendStatus(403)
+            if (err || find.email !== decoded.email) return res.sendStatus(403)
             const accessToken = jwt.sign(
-                {"username": decoded.username},
+                {"email": decoded.email},
                 process.env.ACCESS_TOKEN_SECRET,
-                {expiresIn: '60s'}
+                {expiresIn: '5min'}
             )
             res.json({accessToken})
         }

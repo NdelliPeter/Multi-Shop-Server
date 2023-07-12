@@ -6,7 +6,7 @@ const { verityJWT } = require("../middleware/veriftyJWT");
 
 router.route('/')
     .get(basketController.getAllBasket)
-    .post(basketController.createNewBasket)
+    .post(verityJWT, basketController.createNewBasket)
     .delete(basketController.deleteAll)
 
 router.route('/baskets/:id')
