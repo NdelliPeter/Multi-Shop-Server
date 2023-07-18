@@ -4,20 +4,33 @@ const corsOptions = require('./config/corsOptions')
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv')
 dotenv.config()
-const db = require('./models')
-const accountRoutes = require('./routes/accounts')
-const sequelize = require('sequelize')
 const {verityJWT} = require('./middleware/veriftyJWT')
 const {logger} = require('./middleware/logEvents')
 const cookieParser = require('cookie-parser')
+const sessions = require('express-session')
+const {sessionMiddleware} = require('./middleware/session')
 
 // Create express app
 const app = express();
 // client.connect()
 
 const port = process.env.PORT || 4000;
+const oneDay = 1000 * 60 * 60 * 24;
 
 // middleware
+//session middleware
+// app.use(sessions({
+//   secret: process.env.ACCESS_TOKEN_SECRET,
+//   saveUninitialized:true,
+//   cookie: {
+//     secure: false,
+//     httpOnly:true,
+//     // maxAge: oneDay 
+//   },
+//   resave: false
+// }));
+
+app.use(sessionMiddleware)
 // app.use(cors(corsOptions));
 app.use(cors({
   origin: "http://localhost:3000"
@@ -35,6 +48,7 @@ app.use(cookieParser())
 
 // route
 const routes = require('./routes/Route');
+const flash = require("express-flash");
 app.use('/', routes);
 
 app.use('/products' , require('./routes/products'));

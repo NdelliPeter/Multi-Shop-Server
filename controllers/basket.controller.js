@@ -4,7 +4,7 @@ const Basket = db.baskets
 
 const { ClientBase, Client } = require('pg')
 
-pool.connect()
+// pool.connect()
 
 
 const getAllBasket = (req, res) => {
@@ -26,7 +26,7 @@ const createNewBasket = (req, res) => {
 
     pool.query(insertProduct, (err, result) =>{
         if (!err){
-            res.send('Insertion complete')
+            res.send({result})
         }else{
             console.log(err.message);
         }
