@@ -51,50 +51,5 @@ const auth = async (req, res) => {
 }
 
 
-// const auth = async (req, res) => {
-//     try {
-//         const {email, password} = req.body;
-//         // const session = req.secret.email;
-
-//         const find = await Account.findOne({where: {email: email}})
-
-//         if(!find) {
-//             return res.status(403).json({
-//                 message: 'Wrong email or password.'
-//             })
-//         }
-//         // console.log(find);
-//         // const hash = await bcrypt.hash(password, 10)
-
-//         const match = await bcrypt.compare(password, find.password)
-        
-//         if(match) {
-//             const {password, bio, ...rest} = find
-//             const userInfo  = Object.assign({}, { ...rest})
-
-//             const token = createToken(userInfo)
-
-//             const decodedToken = jwtDecode(token)
-//             const expiresAt = decodedToken.exp
-
-//             req.session.find = userInfo
-//         // console.log(req.session.find);
-//             res.json({
-//                 message: 'Authentication successful!',
-//                 token,
-//                 userInfo,
-//                 expiresAt
-//             })
-//         }else {
-//             res.status(403).json({message: 'Wrong email or password.'})
-//         }
-        
-//     } catch (err) {
-//         console.log(err);
-//         return res.status(400).json({message: 'Something went wrong.'})
-//     }
-
-// }
-
 
 module.exports = { auth }
