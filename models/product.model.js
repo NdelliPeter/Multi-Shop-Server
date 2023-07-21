@@ -23,7 +23,7 @@ module.exports = function createProductModel(sequelize) {
     },
     {
         freezeTableName: true,
-        // timestamps: false
+        timestamps: false
     }
     );
 

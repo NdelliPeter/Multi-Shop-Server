@@ -34,28 +34,39 @@ const createNewBasket = (req, res) => {
     pool.end
 }
 
-const updateBasket = (req, res) => {
-    let basket = req.body
-    basket.total =basket.price * basket.quantity
-    console.log(basket);
-    let updateBasket = `update baskets
-                        set name='${basket.name}', 
-                        price=${basket.price}, 
-                        image='${basket.image}', 
-                        category='${basket.category}',
-                        quantity=${basket.quantity},
-                        total=${basket.total}
-                        where id=${basket.id}`
+const updateBasket = async (req, res) => {
 
-    pool.query(updateBasket, (err, result) => {
-        if(!err){
-            res.send('Update is complete')
-        }else{
-            console.log(err.message)
-        }
-    })
-    pool.end
-
+    try {
+        let basket = req.body
+        basket.total =basket.price * basket.quantity
+        console.log(basket);
+        let updateBasket = `update baskets
+                            set name='${basket.name}', 
+                            price=${basket.price}, 
+                            image='${basket.image}', 
+                            category='${basket.category}',
+                            quantity=${basket.quantity},
+                            total=${basket.total}
+                            where id=${basket.id}`
+    
+        pool.query(updateBasket, (err, result) => {
+            if(!err){
+                res.send('Update is complete')
+            }else{
+                console.log(err.message)
+            }
+        })
+        pool.end
+        // const updateBasket = await Basket.upsert({
+        //     id: basket.id,
+        //     quantity: basket.quantity,
+        //     total : basket.price * basket.quantity
+        // })
+    
+        // res.json(updateBasket)
+    } catch (error) {
+        res.send(error)
+    }
 }
 
 const deleteBasket = (req, res) => {

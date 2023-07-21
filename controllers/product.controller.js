@@ -5,15 +5,18 @@ const db = require('../models');
 const { ClientBase, Client } = require('pg')
 
 // pool.connect()
-db.products
+const Product = db.products
 
-const getAllProducts = (req, res) => {
-    pool.query(`Select * from products`, (err, result) => {
-        if (!err) {
-            res.send(result.rows)
-        }
-    })
-    pool.end
+const getAllProducts = async (req, res) => {
+    // pool.query(`Select * from products`, (err, result) => {
+    //     if (!err) {
+    //         res.send(result.rows)
+    //     }
+    // })
+    // pool.end
+    const pccounts = await Product.findAll()
+    console.log(pccounts);
+    res.status(201).send(pccounts)
 }
 
 const createNewProduct = (req, res) => {
@@ -65,6 +68,10 @@ const deleteProduct = (req, res) => {
     pool.end
 
 
+}
+
+const getProductsByprice = async (req, res) =>{
+    
 }
 
 const getProduct = (req, res) => {
