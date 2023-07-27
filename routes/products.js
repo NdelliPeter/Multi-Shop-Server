@@ -6,6 +6,9 @@ router.route('/products')
     .get(productsController.getAllProducts)
     .post(productsController.createNewProduct)
 
+// router.route('/products/range')
+//     .get(productsController.getProductsByprice)
+
 router.route('/products/:id')
     .put(productsController.updateProduct)
     .delete(productsController.deleteProduct)

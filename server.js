@@ -60,6 +60,7 @@ app.use('/logout' , require('./routes/logout'));
 // app.use(verityJWT); 
 app.use('/baskets', require('./routes/baskets'));
 app.use('/checkout', require('./routes/checkout'));
+app.use('/filter', require('./routes/filter'))
 
 
 // app.use('/api/user', accountRoutes)

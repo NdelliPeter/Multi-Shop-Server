@@ -8,15 +8,9 @@ const { ClientBase, Client } = require('pg')
 const Product = db.products
 
 const getAllProducts = async (req, res) => {
-    // pool.query(`Select * from products`, (err, result) => {
-    //     if (!err) {
-    //         res.send(result.rows)
-    //     }
-    // })
-    // pool.end
-    const pccounts = await Product.findAll()
-    console.log(pccounts);
-    res.status(201).send(pccounts)
+    const products = await Product.findAll();
+    console.log(products);
+    res.status(201).send(products)
 }
 
 const createNewProduct = (req, res) => {
@@ -70,9 +64,7 @@ const deleteProduct = (req, res) => {
 
 }
 
-const getProductsByprice = async (req, res) =>{
-    
-}
+
 
 const getProduct = (req, res) => {
     pool.query(`Select * from products where id= ${req.params.id}`, (err, result) => {
@@ -90,5 +82,6 @@ module.exports = {
     createNewProduct,
     updateProduct,
     deleteProduct,
-    getProduct
+    getProduct,
+    // getProductsByprice
 }

@@ -20,7 +20,7 @@ const createNewBasket = (req, res) => {
     const basket = req.body
     basket.quantity = 1
     basket.total = basket.price
-    console.log(basket);
+    // console.log(basket);
     const insertProduct = `insert into baskets(id, name, price, image, category, quantity, total)
     values(${basket.id}, '${basket.name}', ${basket.price}, '${basket.image}', '${basket.category}', ${basket.quantity}, ${basket.total} )`
 
@@ -39,7 +39,7 @@ const updateBasket = async (req, res) => {
     try {
         let basket = req.body
         basket.total =basket.price * basket.quantity
-        console.log(basket);
+        // console.log(basket);
         let updateBasket = `update baskets
                             set name='${basket.name}', 
                             price=${basket.price}, 
@@ -72,7 +72,7 @@ const updateBasket = async (req, res) => {
 const deleteBasket = (req, res) => {
 
     let insertQuery = `delete from baskets where id=${req.params.id}`
-    console.log(insertQuery);
+    // console.log(insertQuery);
     pool.query(insertQuery, (err, result) => {
         if(!err) {
             res.send('Delete complete')
@@ -87,7 +87,7 @@ const deleteBasket = (req, res) => {
 const deleteAll = (req, res) => {
 
     let insertQuery = `delete from baskets where *`
-    console.log(insertQuery);
+    // console.log(insertQuery);
     pool.query(insertQuery, (err, result) => {
         if(!err) {
             res.send('Delete complete')
