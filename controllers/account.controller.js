@@ -2,6 +2,8 @@ const pool = require('../connection')
 const db = require('../models');
 const jwt = require('jsonwebtoken');
 const cookie = require('cookie-parser')
+const ROLES_LIST = require('../config/roles_list')
+
 
 // pool.connect()
 
@@ -30,6 +32,7 @@ const createAccount = async (req, res) => {
             id: id,
             fullname: fullname,
             username: userName,
+            role:ROLES_LIST.User,
             email: email,
             password: await bcrypt.hash(password, 10)
         }
@@ -37,14 +40,6 @@ const createAccount = async (req, res) => {
         // Saving an account
         const account = await Account.create(data)
         if (account) {
-            // let token = jwt.sign({ id: account.id }, process.env.ACCESS_TOKEN_SECRET, {
-            //   expiresIn: 1 * 24 * 60 * 60 * 1000,
-            // });
-       
-            // res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60, httpOnly: true });
-            // console.log("account", JSON.stringify(account, null, 2));
-            // console.log(token);
-            //send account details
             return res.status(201).send(account);
         }else {
             return res.status(409).send("Details are not correct");

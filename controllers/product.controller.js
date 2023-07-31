@@ -14,22 +14,29 @@ const getAllProducts = async (req, res) => {
 }
 
 const createNewProduct = (req, res) => {
-    const product = req.body
-    const insertProduct = `insert into products(id, name, price, image, category)
-    values(${product.id}, '${product.name}', ${product.price}, '${product.image}', '${product.category}' )`
+    try {
+    const data = req.body
+        const product = Product.create(data)
+        res.status(200).json(product)
+    } catch (error) {
+        res.status(404).json(error)
+    }
+    // const insertProduct = `insert into products(id, name, price, image, category)
+    // values(${product.id}, '${product.name}', ${product.price}, '${product.image}', '${product.category}' )`
 
-    pool.query(insertProduct, (err, result) =>{
-        if (!err){
-            res.send('Insertion complete')
-        }else{
-            console.log(err.message);
-        }
-    })
-    pool.end
+    // pool.query(insertProduct, (err, result) =>{
+    //     if (!err){
+    //         res.send('Insertion complete')
+    //     }else{
+    //         console.log(err.message);
+    //     }
+    // })
+    // pool.end
 }
 
 const updateProduct = (req, res) => {
-    let product = req.body
+    const product = req.body
+    console.log(product);
     let updateProduct = `update products
                         set name='${product.name}', 
                         price=${product.price}, 

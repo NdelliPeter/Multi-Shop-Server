@@ -25,15 +25,10 @@ module.exports = function createAccountModel(sequelize) {
             type: Sequelize.DataTypes.STRING,
             allowNull: false
         },
-        // role: {
-        //     user: {
-        //         type: Sequelize.DataTypes.STRING
-                
-        //     },
-        //     vendor: {
-        //         type: Sequelize.DataTypes.INTEGER
-        //     }
-        // },
+        role: {
+            type: Sequelize.DataTypes.INTEGER
+
+        },
         refreshtoken: {
             type: Sequelize.DataTypes.STRING,
             allowNull: true
