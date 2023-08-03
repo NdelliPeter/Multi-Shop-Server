@@ -13,10 +13,20 @@ const getAllProducts = async (req, res) => {
     res.status(201).send(products)
 }
 
-const createNewProduct = (req, res) => {
+const createNewProduct = async (req, res) => {
     try {
     const data = req.body
-        const product = Product.create(data)
+    // const image = req.body.image.buffer
+    const d = {
+        id: data.id,
+        name: data.name,
+        price: data.price,
+        category: data.category,
+        image: data.image
+    }
+    console.log(d);
+        const product = await Product.create(d)
+        console.log(product);
         res.status(200).json(product)
     } catch (error) {
         res.status(404).json(error)

@@ -7,7 +7,7 @@ router.route('/accounts')
     .get( accountsController.getAllAccounts)
     .post(accountsController.createAccount)
 
-router.route('accounts/:id')
+router.route('/:id')
     .put(accountsController.updateAccount)
     .delete(accountsController.deleteAccount)
 

@@ -36,8 +36,8 @@ app.use(cors({
   origin: "http://localhost:3000"
 }));
 app.use(logger)
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json({limit: "10mb", extended: true}));
+app.use(bodyParser.urlencoded({limit: "10mb", extended: true, parameterLimit: 50000}));
 app.use(cookieParser())
 
 
@@ -56,6 +56,7 @@ app.use('/accounts' , require('./routes/accounts'));
 app.use('/auth' , require('./routes/auth'));
 app.use('/refresh' , require('./routes/refresh'));
 app.use('/logout' , require('./routes/logout'));
+app.use('/resetpassword' , require('./routes/resetpassword'));
 
 // app.use(verityJWT); 
 app.use('/baskets', require('./routes/baskets'));

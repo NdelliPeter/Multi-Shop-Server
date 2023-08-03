@@ -26,13 +26,13 @@ const getAllAccounts = (req, res) => {
 
 const createAccount = async (req, res) => {
 
-    const {id, fullname, userName, email, password} = req.body
+    const { id, fullname, userName, email, password } = req.body
     try {
         const data = {
             id: id,
             fullname: fullname,
             username: userName,
-            role:ROLES_LIST.User,
+            role: ROLES_LIST.User,
             email: email,
             password: await bcrypt.hash(password, 10)
         }
@@ -41,7 +41,7 @@ const createAccount = async (req, res) => {
         const account = await Account.create(data)
         if (account) {
             return res.status(201).send(account);
-        }else {
+        } else {
             return res.status(409).send("Details are not correct");
         }
         // res.send(account)
@@ -55,33 +55,45 @@ const createAccount = async (req, res) => {
 
 
 
-const updateAccount = (req, res) => {
-    let account = req.body
-    let updateAccount = `update products
-                        set firsName='${account.firstName}', 
-                        lastName=${account.lastName}, 
-                        userNmae='${account.userName}', 
-                        email='${userName.email}',
-                        password='${userName.password}',
-                        where id=${account.id}`
+const updateAccount = async (req, res) => {
+    // const acc = Account.findOne({where:{id: req.params}})
+    // console.log(acc);
 
-    pool.query(updateAccount, (err, result) => {
-        if(!err){
-            res.send('Update is complete')
-        }else{
-            console.log(err.message)
-        }
-    })
-    pool.end
+    try {
+        const account = req.body
+        const pass = await bcrypt.hash(account.password, 10)
+        console.log('jsdkjkvvkjsnsvkjnvf', pass);
+        let updateAccount = `update accounts
+                            set fullname='${account.fullname}', 
+                            username='${account.username}', 
+                            role=${account.role},
+                            email='${account.email}',
+                            password='${pass}',
+                            refreshtoken='${account.refreshtoken}'
+                            where id=${account.id}`
+
+        pool.query(updateAccount, (err, result) => {
+            if(!err){
+                res.send('Update is complete')
+            }else{
+                console.log(err.message)
+            }
+        })
+        pool.end
+    } catch (error) {
+        res.status(404).json(error)
+    }
 }
+
+
 
 const deleteAccount = (req, res) => {
     let insertQuery = `delete from products where id=${req.params.id}`
     console.log(insertQuery);
     pool.query(insertQuery, (err, result) => {
-        if(!err) {
+        if (!err) {
             res.send('Delete complete')
-        }else{
+        } else {
             console.log(err.message);
         }
     })
@@ -90,7 +102,7 @@ const deleteAccount = (req, res) => {
 
 const getAccount = (req, res) => {
     pool.query(`Select * from accounts where id= ${req.params.id}`, (err, result) => {
-        if(!err) {
+        if (!err) {
             res.send(result.rows)
         }
     })
