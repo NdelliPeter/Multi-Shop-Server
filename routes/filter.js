@@ -5,8 +5,11 @@ const filterController = require('../controllers/productFilter');
 router.route('/')
     .get(filterController.getProductsByprice)
 
-// router.route('/products/range')
-//     .get(productsController.getProductsByprice)
+router.route('/painting')
+    .get(filterController.getPaintingsByprice)
+
+router.route('/sculpture')
+    .get(filterController.getSculpturesByprice)
 
 
 module.exports = router;

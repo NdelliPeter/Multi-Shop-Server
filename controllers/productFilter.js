@@ -15,10 +15,46 @@ const getProductsByprice = async (req, res) =>{
         console.log(filter);
         res.status(201).send(filter);
     } catch (error) {
-        res.status(404).json({message: '${error}'})
+        res.status(404).json({message: `${error}`})
     }
 
 }
 
 
-module.exports = { getProductsByprice }
+const getPaintingsByprice = async (req, res) =>{
+
+    try {
+        console.log('lknnfflndlnnvl', req.query.range);
+        const {min, max} = req.query.range;
+        console.log(min, max);
+        const products = await Product.findAll({where:{category: 'painting'}});
+        const filter = products.filter((prod)=> prod.price >= min && prod.price <= max)
+        console.log(filter);
+        res.status(201).send(filter);
+    } catch (error) {
+        res.status(404).json({message: `${error}`})
+    }
+
+}
+const getSculpturesByprice = async (req, res) =>{
+
+    try {
+        console.log('lknnfflndlnnvl', req.query.range);
+        const {min, max} = req.query.range;
+        console.log(min, max);
+        const products = await Product.findAll({where:{category: 'sculpture'}});
+        const filter = products.filter((prod)=> prod.price >= min && prod.price <= max)
+        console.log(filter);
+        res.status(201).send(filter);
+    } catch (error) {
+        res.status(404).json({message: `${error}`})
+    }
+
+}
+
+
+module.exports = { 
+    getProductsByprice,
+    getPaintingsByprice,
+    getSculpturesByprice
+ }
