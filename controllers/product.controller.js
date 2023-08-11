@@ -9,14 +9,13 @@ const Product = db.products
 
 const getAllProducts = async (req, res) => {
     const products = await Product.findAll();
-    console.log(products);
+    // console.log(products);
     res.status(201).send(products)
 }
 
 const createNewProduct = async (req, res) => {
     try {
     const data = req.body
-    // const image = req.body.image.buffer
     const d = {
         id: data.id,
         name: data.name,
@@ -25,23 +24,16 @@ const createNewProduct = async (req, res) => {
         image: data.image
     }
     console.log(d);
-        const product = await Product.create(d)
-        console.log(product);
-        res.status(200).json(product)
+    const product = await Product.create(d)
+    console.log(product);
+    if(product){
+        return res.status(200).json(product)
+    }else{
+        return res.status(409).send("Details are not correct");
+    }
     } catch (error) {
         res.status(404).json(error)
     }
-    // const insertProduct = `insert into products(id, name, price, image, category)
-    // values(${product.id}, '${product.name}', ${product.price}, '${product.image}', '${product.category}' )`
-
-    // pool.query(insertProduct, (err, result) =>{
-    //     if (!err){
-    //         res.send('Insertion complete')
-    //     }else{
-    //         console.log(err.message);
-    //     }
-    // })
-    // pool.end
 }
 
 const updateProduct = (req, res) => {
