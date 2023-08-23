@@ -10,6 +10,8 @@ router.route('/painting')
 
 router.route('/sculpture')
     .get(filterController.getSculpturesByprice)
+router.route('/fabric')
+    .get(filterController.getFabricByprice)
 
 
 module.exports = router;
