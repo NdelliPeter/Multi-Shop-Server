@@ -1,16 +1,15 @@
 {
     "version": 2,
-    "name": "multi-shop-server",
     "builds": [
         {
-            "src": "server.js",
+            "src": "./server.js",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
-            "src": "/(./server.js)",
-            "dest": "./server.js"
+            "src": "/(.*)",
+            "destination": "./"
         }
     ]
 }
