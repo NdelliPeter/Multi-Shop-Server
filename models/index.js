@@ -1,6 +1,6 @@
 const {Sequelize, DataTypes} = require('sequelize')
 
-const sequelize = new Sequelize('postgres', 'postgres', 'Charles/123', {dialect: "postgres"})
+const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER,process.env.PGPASSWORD, {dialect: "postgres"})
 
 
 //checking if connection is done

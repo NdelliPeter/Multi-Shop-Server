@@ -5,7 +5,7 @@ const Accounts = db.accounts
 
 const logout = async (req, res) => {
     const cookies = req.cookies
-    if(!cookies?.jwt) return res.sendStatus(204)
+    if(!cookies.jwt) return res.sendStatus(204)
     const refreshToken = cookies.jwt
 
     const find = Accounts.findOne({where: {refreshToken: refreshToken}})

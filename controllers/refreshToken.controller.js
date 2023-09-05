@@ -7,7 +7,7 @@ const Accouts = db.accounts
 const handleRefreshToken = (req, res) => {
     const cookies = req.cookies
     console.log(cookies);
-    if(!cookies?.jwt) return res.sendStatus(401)
+    if(!cookies.jwt) return res.sendStatus(401)
     console.log('refreshtoken', cookies.jwt);
     const refreshToken = cookies.jwt
     const find = Accouts.findOne({where: {refreshToken: refreshToken}})
