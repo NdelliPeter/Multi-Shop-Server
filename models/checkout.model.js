@@ -3,7 +3,7 @@ const { Sequelize, DataTypes, Model } = require("sequelize");
 
 
 module.exports = function createCheckoutModel(sequelize) {
-    const Checkout = sequelize.define('products', {
+    const Checkout = sequelize.define('checkout', {
         subtotal: {
             type: Sequelize.DataTypes.INTEGER,
         },

@@ -8,7 +8,7 @@
     ],
     "routes": [
         {
-            "source": "/(.*)",
+            "source": "/sever.js",
             "destination": "./"
         }
     ]

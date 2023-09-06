@@ -4,11 +4,11 @@ const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER,proce
 
 
 //checking if connection is done
-sequelize.authenticate().then(() => {
-    console.log(`Database connected to discover`)
-}).catch((err) => {
-    console.log(err)
-})
+// sequelize.authenticate().then(() => {
+//     console.log(`Database connected to discover`)
+// }).catch((err) => {
+//     console.log(err)
+// })
 
 
 const db = {}

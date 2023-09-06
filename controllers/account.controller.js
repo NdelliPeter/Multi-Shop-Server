@@ -1,7 +1,7 @@
 const pool = require('../connection')
 const db = require('../models');
-const jwt = require('jsonwebtoken');
-const cookie = require('cookie-parser')
+// const jwt = require('jsonwebtoken');
+// const cookie = require('cookie-parser')
 const ROLES_LIST = require('../config/roles_list')
 
 
@@ -36,7 +36,6 @@ const createAccount = async (req, res) => {
             email: email,
             password: await bcrypt.hash(password, 10)
         }
-        console.log(data);
         // Saving an account
         const account = await Account.create(data)
         if (account) {
